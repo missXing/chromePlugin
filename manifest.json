@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "my-plugin",
+  "name": "chromeHeaderPlugin",
   "version": "0.1.0",
   "description": "我的第一个插件",
   "icons": {
@@ -21,18 +21,10 @@
       "js": ["./js/content.js"],
       "css": ["./css/style.css"],
       "run_at": "document_end"
-    },
-    {
-      "matches": ["https://www.baidu.com/"],
-      "js": ["./js/other.js"],
-      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": ["js/inject.js"],
   "permissions": [
-    "contextMenus",
-    "tabs",
-    "notifications",
     "webRequest",
     "webRequestBlocking",
     "storage",
