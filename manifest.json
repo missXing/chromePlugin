@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "my-plugin",
+  "version": "0.1.0",
+  "description": "我的第一个插件",
+  "icons": {
+    "84": "./icon/icon.png"
+  },
+  "browser_action": {
+    "default_icon": "./icon/icon.png",
+    "default_title": "我的插件",
+    "default_popup": "./html/popup.html"
+  },
+  "background": {
+    "scripts": ["./js/background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./js/content.js"],
+      "css": ["./css/style.css"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://www.baidu.com/"],
+      "js": ["./js/other.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": ["js/inject.js"],
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>"
+  ]
+}
